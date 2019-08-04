@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="score-service.application.main" target="1.8" />
+      <module name="score-service.application.test" target="1.8" />
+      <module name="score-service.bootstrap.main" target="1.8" />
+      <module name="score-service.bootstrap.test" target="1.8" />
+      <module name="score-service.domain.main" target="1.8" />
+      <module name="score-service.domain.test" target="1.8" />
+      <module name="score-service.framework.main" target="1.8" />
+      <module name="score-service.framework.test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/score-service.iml" filepath="$PROJECT_DIR$/score-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/application/score-service.application.iml" filepath="$PROJECT_DIR$/.idea/modules/application/score-service.application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/application/score-service.application.main.iml" filepath="$PROJECT_DIR$/.idea/modules/application/score-service.application.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/application/score-service.application.test.iml" filepath="$PROJECT_DIR$/.idea/modules/application/score-service.application.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bootstrap/score-service.bootstrap.iml" filepath="$PROJECT_DIR$/.idea/modules/bootstrap/score-service.bootstrap.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bootstrap/score-service.bootstrap.main.iml" filepath="$PROJECT_DIR$/.idea/modules/bootstrap/score-service.bootstrap.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bootstrap/score-service.bootstrap.test.iml" filepath="$PROJECT_DIR$/.idea/modules/bootstrap/score-service.bootstrap.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/score-service.domain.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/score-service.domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/score-service.domain.main.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/score-service.domain.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/score-service.domain.test.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/score-service.domain.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/framework/score-service.framework.iml" filepath="$PROJECT_DIR$/.idea/modules/framework/score-service.framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/framework/score-service.framework.main.iml" filepath="$PROJECT_DIR$/.idea/modules/framework/score-service.framework.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/framework/score-service.framework.test.iml" filepath="$PROJECT_DIR$/.idea/modules/framework/score-service.framework.test.iml" />
+    </modules>
+  </component>
+</project>
