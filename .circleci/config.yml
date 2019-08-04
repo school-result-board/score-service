@@ -40,3 +40,9 @@ jobs:
 
       # run tests!
       - run: gradle test
+
+      - run: gradle build
+
+      - store_artifacts:
+          path: /bootstrap/build/libs
+          destination: score-service
