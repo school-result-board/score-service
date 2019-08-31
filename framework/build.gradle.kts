@@ -11,7 +11,7 @@ java.sourceCompatibility = JavaVersion.VERSION_1_8
 group = "com.zaid.hoona.score"
 version = "1.0-SNAPSHOT"
 extra["springBootVersion"] = "2.1.6.RELEASE"
-extra["springCloudVersion"] = "Greenwich.SR1"
+extra["springCloudVersion"] = "Greenwich.RELEASE"
 
 dependencies {
     compile(project(":application"))
@@ -24,11 +24,13 @@ dependencies {
     testImplementation("org.mockito:mockito-inline:2.23.4")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     implementation("org.flywaydb:flyway-core")
+    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
 }
 
 dependencyManagement {
     imports {
         mavenBom("org.springframework.boot:spring-boot-starter-parent:${property("springBootVersion")}")
+        mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
     }
 }
 

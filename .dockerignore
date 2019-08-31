@@ -1,0 +1,20 @@
+# Intellij
+*.iml
+.idea
+
+# Circle CI
+.circleci
+
+# Gradle
+build
+out
+
+# Git
+.git
+.gitignore
+
+#Gradle
+.gradle
+
+# Readme
+README.md
