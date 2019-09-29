@@ -43,6 +43,14 @@ jobs:
 
       - run: gradle build
 
-      - store_artifacts:
-          path: /bootstrap/build/libs
-          destination: score-service
+      - run:
+          name: Install jFrog CLI
+          command: curl -fL https://getcli.jfrog.io | sh
+
+      - run:
+          name: Push to Artifactory
+          command: |
+            ./jfrog rt config --url zaidhoona-docker-docker.bintray.io --user zaidhoona --apikey 422682c9219fa74a4d1a48cc4ce357af9f401899 --interactive=false
+            ./jfrog rt u [orgPath]/[module]/[baseRev](-[folderItegRev])/[module]-[baseRev](-[fileItegRev])(-[classifier]).[ext] docker --build-name=score-service --build-number=$CIRCLE_BUILD_NUM
+            ./jfrog rt bce score-service $CIRCLE_BUILD_NUM  # collects all environment variables on the agent
+            ./jfrog rt bp score-service $CIRCLE_BUILD_NUM  # attaches ^^ to the build in artifactory
