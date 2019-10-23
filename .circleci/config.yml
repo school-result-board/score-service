@@ -42,5 +42,17 @@ jobs:
           version: 18.06.0-ce
 
       - run:
+          name: Login to docker
+          command: docker login -u zaidhoona -p 422682c9219fa74a4d1a48cc4ce357af9f401899 zaidhoona-docker-docker.bintray.io
+
+      - run:
           name: Build Docker image
           command: docker build -t result-board/score-service:latest .
+
+      - run:
+          name: Tag image
+          command: docker tag result-board/score-service:latest zaidhoona-docker-docker.bintray.io/result-board/score-service:latest
+
+      - run:
+          name: Push to artifactory
+          command: docker push zaidhoona-docker-docker.bintray.io/result-board/score-service:latest
