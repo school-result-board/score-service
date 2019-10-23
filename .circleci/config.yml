@@ -1,33 +1,13 @@
-# Java Gradle CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-java/ for more details
-#
 version: 2
 jobs:
-  build:
+  checkout:
     docker:
-      # specify the version you desire here
       - image: circleci/openjdk:8-jdk
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
-
-    working_directory: ~/repo
-
-    environment:
-      # Customize the JVM maximum heap limit
-      JVM_OPTS: -Xmx3200m
-      TERM: dumb
-
     steps:
       - checkout
-
-      # Download and cache dependencies
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "build.gradle" }}
+            - v1-dependencies-{{ checksum "build.gradle.kts" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
@@ -36,21 +16,9 @@ jobs:
       - save_cache:
           paths:
             - ~/.gradle
-          key: v1-dependencies-{{ checksum "build.gradle" }}
-
-      # run tests!
-      - run: gradle test
-
-      - run: gradle build
-
-      - run:
-          name: Install jFrog CLI
-          command: curl -fL https://getcli.jfrog.io | sh
-
-      - run:
-          name: Push to Artifactory
-          command: |
-            ./jfrog rt config --url zaidhoona-docker-docker.bintray.io --user zaidhoona --apikey 422682c9219fa74a4d1a48cc4ce357af9f401899 --interactive=false
-            ./jfrog rt u [orgPath]/[module]/[baseRev](-[folderItegRev])/[module]-[baseRev](-[fileItegRev])(-[classifier]).[ext] docker --build-name=score-service --build-number=$CIRCLE_BUILD_NUM
-            ./jfrog rt bce score-service $CIRCLE_BUILD_NUM  # collects all environment variables on the agent
-            ./jfrog rt bp score-service $CIRCLE_BUILD_NUM  # attaches ^^ to the build in artifactory
+          key: v1-dependencies-{{ checksum "build.gradle.kts" }}
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - checkout
