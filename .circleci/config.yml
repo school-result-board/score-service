@@ -15,7 +15,6 @@ jobs:
       # Customize the JVM maximum heap limit
       JVM_OPTS: -Xmx3200m
       TERM: dumb
-      IMAGE_NAME: result-board/score-service
 
     steps:
       - checkout
@@ -39,6 +38,9 @@ jobs:
 
       - run: gradle build
 
+      - setup_remote_docker:
+          version: 18.06.0-ce
+
       - run:
           name: Build Docker image
-          command: docker build -t $IMAGE_NAME:latest .
+          command: docker build -t result-board/score-service:latest .
