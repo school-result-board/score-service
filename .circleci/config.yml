@@ -15,8 +15,6 @@ jobs:
       # Customize the JVM maximum heap limit
       JVM_OPTS: -Xmx3200m
       TERM: dumb
-      APP_NAME: score-service
-      ARTIFACTORY_URL: zaidhoona-docker-docker.bintray.io
 
     steps:
       - checkout
@@ -45,16 +43,22 @@ jobs:
 
       - run:
           name: Login to docker
-          command: docker login -u zaidhoona -p 422682c9219fa74a4d1a48cc4ce357af9f401899 zaidhoona-docker-docker.bintray.io
+          command: docker login -u ${ARTIFACTORY_USER} -p ${ARTIFACTORY_API_KEY} zaidhoona-docker-docker.bintray.io
 
       - run:
           name: Build Docker image
-          command: docker build -t result-board/${APP_NAME}:latest .
+          command: docker build -t result-board/${CIRCLE_PROJECT_REPONAME}:latest .
 
       - run:
           name: Tag image
-          command: docker tag result-board/${APP_NAME}:latest ${ARTIFACTORY_URL}/result-board/${APP_NAME}:latest
+          command: docker tag result-board/${CIRCLE_PROJECT_REPONAME}:latest ${ARTIFACTORY_URL}/result-board/${CIRCLE_PROJECT_REPONAME}:latest
 
       - run:
           name: Push to artifactory
-          command: docker push ${ARTIFACTORY_URL}/result-board/${APP_NAME}:latest
+          command: docker push ${ARTIFACTORY_URL}/result-board/${CIRCLE_PROJECT_REPONAME}:latest
+workflows:
+  version: 2
+  build_test_and_publish:
+    jobs:
+      - build:
+          context: Artifactory
